@@ -1,10 +1,15 @@
-# move
+# Move
 
 Smart contract language with formal verification and the idea of ownership baked into its programming model.
 
-The stdlib for the 0L network is written in move. The stdlib defines some of the core protocol of the network, and 
-is able to be upgrade on the running network with a 2/3rd validator vote. The `stdlib` defines basic protocol rules:
+The stdlib for the 0L network is written in move. The stdlib defines the core protocol and rules of the 0L blockchain.
+The move stdlib can be upgraded on the running network by deploying the new binary to a gobally accessible location
+and having 2/3rd validator vote on accepting the new binary. 
+
+The `stdlib` defines basic protocol rules:
 consensus, account creation, tx validation, etc. [see move_stdlib.md](move_stdlib.md)
+
+TODO: `stdlib` (Vector.move, etc.) vs `diem-framework` (protocol code)
 
 ## Modules and Resources
 
@@ -60,8 +65,12 @@ module M {
 **Key** - value can be used as a key for global storage operations.  
 **Store** - value can be stored inside global storage.  
 
-## Move Resources
+## Move Links
 
 [Mysten labs awesome move](https://github.com/MystenLabs/awesome-move)
 
 [The move book](https://move-book.com/introduction/foreword.html)
+
+**review** [0L publishing third party module](https://github.com/OLSF/libra/blob/main/ol/documentation/move-dev/writing_and_publishing_thirdparty_modules.md)
+
+**review** [deploy move modules using diem testnet](https://github.com/OLSF/libra/blob/main/ol/documentation/core-devs/deploy_move_modules_using_diem_testnet.md)

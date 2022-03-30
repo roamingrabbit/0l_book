@@ -37,3 +37,9 @@ Carpe - wallet + light miner
 `Error.move`: 0l added ol_tx and ol errors.
 
 `Hash.move` // natively declared in move runtime.
+
+
+## 0L stdlib Code
+[Diem modules diem-framework/modules/](https://github.com/OLSF/libra/tree/main/language/diem-framework/modules)   
+[0L diem-framework/modules/0L](https://github.com/OLSF/libra/tree/main/language/diem-framework/modules/0L)   
+[0L diem-framework/0L transaction scripts](https://github.com/OLSF/libra/tree/main/language/diem-framework/modules/0L_transaction_scripts)

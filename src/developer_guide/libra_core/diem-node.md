@@ -1,5 +1,8 @@
 # diem-node
 
+### Modes
+* Fullnodes 
+* Validator
 
 ### Running Diem-node
 
