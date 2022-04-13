@@ -19,4 +19,12 @@ Let the games begin.
 ## Engineering
 * [libra project board](https://github.com/OLSF/libra/projects/6)
 * [airtable](https://airtable.com/shrCuXWvrZgHkspk7/tblixhNzkEaKt3a75)
-hmm
+
+
+## Monitoring
+* [grafana dash](http://grafana.openlibra.space:3000/login)
+* [0L Explorer](https://0l.interblockcha.in/)
+
+## Videos
+* [OttO from 0L - community calls](https://www.youtube.com/channel/UC5k7MBIQX62a0zBHFA29Hnw)
+* [carpe install](https://www.youtube.com/watch?v=FcPiiZNS8sA)

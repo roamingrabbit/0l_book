@@ -31,6 +31,10 @@
 - [testnet](./developer_guide/testnet/README.md)
 - [operations](./developer_guide/ops/README.md)
   - [error codes](./developer_guide/ops/error_codes.md)
+  
+# Network Rescues
+  - [2022 April 100 onboard](./network_rescue/2022_april.md)
+
 # Get Involved 
 - [Working Groups](./wg/README.md)
   - [engineering-wg](./wg/eng_wg.md)
