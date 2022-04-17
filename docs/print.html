@@ -991,7 +991,16 @@ Blocks started to be produced, albeit slower than normal, and occationally block
 <li><a href="https://docs.google.com/spreadsheets/d/1QRal4-LLuDZIiLyMsMV_2_nteuNc4avuykoPWg6Od_g/edit#gid=1546165814">11th April validator coordinated restart</a></li>
 <li><a href="https://raw.githubusercontent.com/OLSF/seed-peers/main/fullnode_seed_playlist.json">fullnode seed playlist</a></li>
 <li><a href="https://github.com/OLSF/epoch-archive/blob/main/Makefile">epoch-archive</a></li>
-<li><a href="https://github.com/OLSF/libra/blob/rescue-mission/ol/documentation/network-upgrades/disaster-recovery.md">disaster-recovery doc - update db, update stdlib</a></li>
+<li><a href="https://github.com/OLSF/libra/blob/rescue-mission/ol/documentation/network-upgrades/disaster-recovery.md">disaster-recovery doc - update db, update stdlib</a><br />
+<strong>note</strong> <code>db-reference.tar.gz</code> should be in the cheatsheet will be @gnudrew25 snapshot as of 17th April 2022. 
+<code>tar -xv db-reference.tar.gz ~/.0L/db</code> // in cheatsheet
+should be the snapshot obtained from <code>https://home.gouin.io:5443/0L.167.tar.xz</code> 
+<pre><code class="language-console">$ wget https://home.gouin.io:5443/0L.167.tar.xz
+
+# takes a while as the tar is 70GB  
+$ tar -xvf 0L.167.tar.xz
+</code></pre>
+</li>
 </ul>
 <h2 id="related-github-issues"><a class="header" href="#related-github-issues">Related Github Issues</a></h2>
 <ul>
@@ -1049,6 +1058,9 @@ typically used to create genesis file, can be used to apply writeset to a databa
 </li>
 </ul>
 <h2 id="backup--snapshot-information"><a class="header" href="#backup--snapshot-information">Backup / Snapshot Information</a></h2>
+<p>@abed's <a href="https://github.com/OLSF/epoch-archive/pull/1">PR for backup and restore at a specific version</a>
+<code>EPOCH=167 VERSION=37235342 make restore-version</code>
+@abed's <a href="https://hackmd.io/8RYUiqrFQo6HbyU0evwXZw?view">detailed write up</a>  <code>backup-cli</code>: <code>db-backup</code> <code>db-restore</code></p>
 <p>https://github.com/OLSF/epoch-archive/blob/main/165/transaction_37230877-.2066/transaction.manifest</p>
 <blockquote>
 <p>There are 3 different components to a backup so that a db can be &quot;bootstrapped&quot; and understandable by the diem-node .<br />
@@ -1098,16 +1110,24 @@ timeout_ms: 30000
 </code></pre>
 <h3 id="hot-stepper-uppers"><a class="header" href="#hot-stepper-uppers">Hot Stepper Uppers</a></h3>
 <p>@Od - main debugging, code diving, solution propositions<br />
-@gnudrew25 - db dump https://home.gouin.io:5443/0L.167.tar.xz<br />
-71G  0L.167.tar.xz
-extracted
-70G  	./db/diemdb
-753M	./db/consensusdb</p>
+@gnudrew25 - db dump https://home.gouin.io:5443/0L.167.tar.xz</p>
+<pre><code class="language-console">$ wget https://home.gouin.io:5443/0L.167.tar.xz
+
+# takes a while as the tar is 70GB
+$ tar -xvf 0L.167.tar.xz
+
+</code></pre>
+<p><code>71G  0L.167.tar.xz</code> 
+extracted</p>
+<pre><code>70G  	./db/diemdb
+753M	./db/consensusdb
+</code></pre>
 <p>@shashank @jamesm - move code<br />
 @Ping | ping.pub - tooling for flashing the stdlib<br />
 @Barmaley<br />
 @Adal - modifiying web app to expose ports<br />
-@Abed - working with backup / snapshots
+@Abed - working with backup / snapshots<br />
+<a href="https://github.com/OLSF/epoch-archive/pull/1/files">PR <code>EPOCH=167 VERSION=37235342 make restore-version</code></a>
 @Daniyal
 @drawks</p>
 <h3 id="lessons-learned"><a class="header" href="#lessons-learned">Lessons Learned</a></h3>
@@ -1116,6 +1136,11 @@ extracted
 <li>No great way to contact validators. Validator contact info could be required in config? Maybe discord name, email or preferred contact.</li>
 <li>Validators that are not active but have accumulated high voting power will potentially kick active validator out of the proposed validator set. </li>
 <li>Full network archive 70G</li>
+</ul>
+<h2 id="prs-for-rescue"><a class="header" href="#prs-for-rescue">PRs For Rescue</a></h2>
+<ul>
+<li><a href="https://github.com/OLSF/libra/pull/1069/">jamesmeijers - update epoch boundry to failback to current validators</a></li>
+<li></li>
 </ul>
 <h2 id="root-cause-analysis"><a class="header" href="#root-cause-analysis">Root Cause Analysis</a></h2>
 <p>What could be seen in the logs is that different block proposals existed at the same time. Usually the proposer election algorithm should   chose deterministically one validator as block proposer for the next round and thus only one proposal should exist at a time. Maybe this is the cause, why no consensus could be found: with several proposals it is even more difficult to get a 2/3 majority on one proposal. </p>

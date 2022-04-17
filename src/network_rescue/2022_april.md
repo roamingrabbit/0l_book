@@ -30,8 +30,17 @@ Eagle Network 15 April 2022 launched as a test network for a reconfigured valida
 - [11th April validator coordinated restart](https://docs.google.com/spreadsheets/d/1QRal4-LLuDZIiLyMsMV_2_nteuNc4avuykoPWg6Od_g/edit#gid=1546165814)  
 - [fullnode seed playlist](https://raw.githubusercontent.com/OLSF/seed-peers/main/fullnode_seed_playlist.json)
 - [epoch-archive](https://github.com/OLSF/epoch-archive/blob/main/Makefile)
-- [disaster-recovery doc - update db, update stdlib](https://github.com/OLSF/libra/blob/rescue-mission/ol/documentation/network-upgrades/disaster-recovery.md)
-
+- [disaster-recovery doc - update db, update stdlib](https://github.com/OLSF/libra/blob/rescue-mission/ol/documentation/network-upgrades/disaster-recovery.md)  
+  **note** `db-reference.tar.gz` should be in the cheatsheet will be @gnudrew25 snapshot as of 17th April 2022. 
+  `tar -xv db-reference.tar.gz ~/.0L/db` // in cheatsheet
+  should be the snapshot obtained from `https://home.gouin.io:5443/0L.167.tar.xz` 
+  ```console
+  $ wget https://home.gouin.io:5443/0L.167.tar.xz
+  
+  # takes a while as the tar is 70GB  
+  $ tar -xvf 0L.167.tar.xz
+  ```
+ 
 ## Related Github Issues 
 - [Only increase validator sets by at most 25% between epochs 1066](https://github.com/OLSF/libra/issues/1066) 
 
@@ -72,6 +81,11 @@ $ nc -zv $IP 6180
 - [PR Network Recovery Tools](https://github.com/OLSF/libra/pull/1071)
 
 ## Backup / Snapshot Information 
+
+@abed's [PR for backup and restore at a specific version](https://github.com/OLSF/epoch-archive/pull/1)
+`EPOCH=167 VERSION=37235342 make restore-version`
+@abed's [detailed write up](https://hackmd.io/8RYUiqrFQo6HbyU0evwXZw?view)  `backup-cli`: `db-backup` `db-restore`
+
 https://github.com/OLSF/epoch-archive/blob/main/165/transaction_37230877-.2066/transaction.manifest
 > There are 3 different components to a backup so that a db can be "bootstrapped" and understandable by the diem-node .   
 > Epoch is meta information on the Epoch.   
@@ -127,16 +141,27 @@ timeout_ms: 30000
 
 @Od - main debugging, code diving, solution propositions  
 @gnudrew25 - db dump https://home.gouin.io:5443/0L.167.tar.xz   
-71G  0L.167.tar.xz
+
+```console
+$ wget https://home.gouin.io:5443/0L.167.tar.xz
+
+# takes a while as the tar is 70GB
+$ tar -xvf 0L.167.tar.xz
+
+```
+`71G  0L.167.tar.xz` 
 extracted
+```
 70G  	./db/diemdb
 753M	./db/consensusdb
+```
 
 @shashank @jamesm - move code  
 @Ping | ping.pub - tooling for flashing the stdlib  
 @Barmaley  
 @Adal - modifiying web app to expose ports  
-@Abed - working with backup / snapshots
+@Abed - working with backup / snapshots  
+[PR `EPOCH=167 VERSION=37235342 make restore-version`](https://github.com/OLSF/epoch-archive/pull/1/files)
 @Daniyal
 @drawks
 
@@ -145,6 +170,10 @@ extracted
 * No great way to contact validators. Validator contact info could be required in config? Maybe discord name, email or preferred contact.
 * Validators that are not active but have accumulated high voting power will potentially kick active validator out of the proposed validator set. 
 * Full network archive 70G
+
+## PRs For Rescue
+* [jamesmeijers - update epoch boundry to failback to current validators](https://github.com/OLSF/libra/pull/1069/)
+* 
 
 ## Root Cause Analysis
 What could be seen in the logs is that different block proposals existed at the same time. Usually the proposer election algorithm should   chose deterministically one validator as block proposer for the next round and thus only one proposal should exist at a time. Maybe this is the cause, why no consensus could be found: with several proposals it is even more difficult to get a 2/3 majority on one proposal. 
