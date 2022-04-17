@@ -144,8 +144,8 @@
                     <main>
                         <h1 id="2022-april-100-onboard"><a class="header" href="#2022-april-100-onboard">2022 April 100 onboard</a></h1>
 <h2 id="what-happened"><a class="header" href="#what-happened">What Happened?</a></h2>
-<p>Validators were failing and around epoch 165 fewer than 4 validators that were eligible to make it into the next epoch, 
-this triggered a conditional in the 
+<p>Block production stopped mid of epoch 165 (last block was produced 2022-04-09 at 12:00:34 CEST  / 10:00:34 UTC / 06:00:34 ET). In the subsequent epoch 166, validators were still failing to produce blocks and thus virtually no proofs were submitted.
+This triggered a conditional in the 
 <a href="https://github.com/OLSF/libra/blob/820ec66f3457fb26a4e24c952407d37f05ce6b1c/language/diem-framework/modules/0L/EpochBoundary.move#L148-L156">on chain move library EpochBoundry.move</a><br />
 that contained a bug: instead of keeping the same validator set from the previous epoch, the <code>top_accounts</code>, capped at 100 
 validators, made it to the next epoch 167. Out of the 100 validators in the new epoch, some were seemingly
@@ -301,26 +301,8 @@ extracted
 <li>Full network archive 70G</li>
 </ul>
 <h2 id="root-cause-analysis"><a class="header" href="#root-cause-analysis">Root Cause Analysis</a></h2>
-<p>@mortonbits
-I was looking into the move code and have an assumption of what might have caused those &quot;consensus troubles&quot;. I am not 
-a blockchain or move language hero, but just from looking to the following piece of code from a software 
-architecture perspective is something, that would not even be good on a multi threaded environment. So I am doubting 
-strongly it will be a good pattern in a distributed ledger and maybe it was only luck that the network kept running for 
-the recent period.</p>
-<p>Basically what I suspect is the usage of the counters of tower proofs submitted. It is a data structure that - in old s
-chool programming - could be called a global variable. It is increased at each submit of a proof. 
-It looks as follows (<a href="https://github.com/OLSF/libra/blob/main/language/diem-framework/modules/0L/TowerState.move#L480-L481">language/diem-framework/modules/0L/TowerState.move</a>) :</p>
-<p>state.fullnode_proofs_in_epoch = state.fullnode_proofs_in_epoch + 1;
-state.lifetime_fullnode_proofs = state.lifetime_fullnode_proofs + 1;
-.
-.
-.
-state.proofs_in_epoch = state.proofs_in_epoch + 1;
-state.lifetime_proofs = state.lifetime_proofs + 1;</p>
-<p>Now - if proofs are submitted frequently and more or less simultaneously to different validators, how can  the network know, 
-which new state is the right one? Maybe someone can prove me wrong, but I lack the imagination, how this should work reliably.</p>
-<p>(btw: a fix could be to make this summation at epoch boundary or whenever needed over all towers. Would be slower, 
-but read-only and thus fail save)</p>
+<p>What could be seen in the logs is that different block proposals existed at the same time. Usually the proposer election algorithm should   chose deterministically one validator as block proposer for the next round and thus only one proposal should exist at a time. Maybe this is the cause, why no consensus could be found: with several proposals it is even more difficult to get a 2/3 majority on one proposal. </p>
+<p>Why several block proposal exist simultaneously is open. Could be due to different config settings of validator nodes in the &quot;consensus&quot; section of validator.node.yaml.</p>
 <h2 id="todos-this-will-be-updated-until-block-morale-improves"><a class="header" href="#todos-this-will-be-updated-until-block-morale-improves">TODOs (this will be updated until block morale improves)</a></h2>
 <ul>
 <li><input disabled="" type="checkbox"/>
