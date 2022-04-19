@@ -156,7 +156,8 @@ and made a symlink to the mounted from the .0l home dir <code>ln -s /mnt/disks/d
 <li>updated paths in the config files to match new home dir.</li>
 </ol>
 <p>TODO: when ready will reassign the IP associated with the current validator to the new validator box
-<code>104.197.186.76</code> and hope it all works...</p>
+<code>104.197.186.76</code> and hope it all works...
+4. reassigned ip, validator came up with db snapshot.</p>
 <h3 id="need"><a class="header" href="#need">Need</a></h3>
 <ul>
 <li>account address</li>
@@ -175,6 +176,32 @@ to get info for <code>validator.yaml</code></li>
 <li>turn on node, will fail immediately.</li>
 <li>all validators in rescue mission can find each other, then should start producing blocks.</li>
 </ol>
+<h2 id="steps"><a class="header" href="#steps">Steps</a></h2>
+<pre><code class="language-console">$ git checkout release-rescue-mission -f
+$ make tx
+$ git pull
+</code></pre>
+<ol start="2">
+<li></li>
+</ol>
+<h2 id="need-everyones-validator-info-ol-whoami"><a class="header" href="#need-everyones-validator-info-ol-whoami">Need Everyone's Validator info <code>ol whoami</code></a></h2>
+<p>@nibbler</p>
+<pre><code class="language-json">ol whoami
+Enter your 0L mnemonic:
+🔑
+
+0L ACCOUNT
+
+address: 34B5D5E56EC27D954AC5D40B24D11422
+authentication key (for account creation): 6eb7c6ed409a3aad568734402fe9614c34b5d5e56ec27d954ac5d40b24d11422
+...
+----- noise protocol addresses -----
+
+Validator (encrypted) address on VALIDATOR network
+
+/ip4/104.197.186.76/tcp/6180/ln-noise-ik/c61044a4544c832bd998e0eded2fa7798a8f59b8219e0c9eef718c8b6f804b2a/ln-handshake/0
+
+</code></pre>
 
                     </main>
 
