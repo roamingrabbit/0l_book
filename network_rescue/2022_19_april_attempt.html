@@ -225,7 +225,7 @@ Caused by:
     IO error: While open a file for random read: /home/0L/.0L/db/diemdb/2046133.sst: Too many open files
 make: *** [Makefile:60: check] Error 1
 </code></pre>
-<p><strong>solution</strong> inc ulimit <code>$ ulimit -n 500000</code></p>
+<h4 id="solution-too-many-open-files-inc-ulimit--ulimit--n-500000"><a class="header" href="#solution-too-many-open-files-inc-ulimit--ulimit--n-500000"><strong>solution</strong> Too many open files inc ulimit <code>$ ulimit -n 500000</code></a></h4>
 <pre><code># increase file descriptors
 ulimit -n 500000
 # check that they have been increased
