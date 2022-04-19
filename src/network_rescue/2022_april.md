@@ -173,7 +173,8 @@ extracted
 
 ## PRs For Rescue
 * [jamesmeijers - update epoch boundry to failback to current validators](https://github.com/OLSF/libra/pull/1069/)
-* 
+* [tools - Network Recovery Tools and Epoch Boundary Hardening](https://github.com/OLSF/libra/pull/1071)
+* [consensus Only increase validator sets by at most 25% between epochs](https://github.com/OLSF/libra/issues/1066)
 
 ## Root Cause Analysis
 What could be seen in the logs is that different block proposals existed at the same time. Usually the proposer election algorithm should   chose deterministically one validator as block proposer for the next round and thus only one proposal should exist at a time. Maybe this is the cause, why no consensus could be found: with several proposals it is even more difficult to get a 2/3 majority on one proposal. 
