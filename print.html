@@ -1230,7 +1230,7 @@ encode stdlib changeset
 
 </code></pre>
 <ol start="2">
-<li>after it finishes run </li>
+<li>after it finishes run <code>make check</code></li>
 </ol>
 <pre><code>$ make check 
 
@@ -1238,7 +1238,31 @@ cat: /home/0L/.0L/rescue_waypoint.txt: No such file or directory
 cd /home/0L/libra &amp;&amp; cargo r -p db-bootstrapper -- $HOME/.0L/db/ --genesis-txn-file $HOME/.0L/rescue/rescue.blob | grep -oP 'waypoint: \K\w+:\w+' &gt; $HOME/.0L/rescue/rescue_waypoint.txt
 
 </code></pre>
-<p>check in <code>ol/rescue</code> look for waypoint</p>
+<ul>
+<li>potential issue <code>make check</code> <code>too many open files</code> </li>
+</ul>
+<pre><code class="language-console">    Running `target/debug/db-bootstrapper /home/0L/.0L/db/ --genesis-txn-file /home/0L/.0L/rescue/rescue.blob`
+Error: Failed to open DB.
+
+Caused by:
+    IO error: While open a file for random read: /home/0L/.0L/db/diemdb/2046133.sst: Too many open files
+make: *** [Makefile:60: check] Error 1
+</code></pre>
+<p><strong>solution</strong> inc ulimit <code>$ ulimit -n 500000</code></p>
+<pre><code class="language-console">Running `target/debug/db-bootstrapper /home/0L/.0L/db/ --genesis-txn-file /home/0L/.0L/rescue/rescue.blob`
+[execution/executor/src/db_bootstrapper.rs:138] &amp;next_epoch = 168
+[execution/executor/src/db_bootstrapper.rs:139] &quot;epoch&quot; = &quot;epoch&quot;
+[execution/executor/src/db_bootstrapper.rs:139] &amp;get_state_epoch(&amp;state_view)? = 168
+Waypoint:
+</code></pre>
+<ol start="3">
+<li>check in <code>.0L/rescue/</code> look for waypoint</li>
+</ol>
+<pre><code class="language-console">$ cd ~/.0L/rescue/ 
+rescue_waypoint.txt`
+$ cat rescue_waypoint.txt
+37235343:8d0ccb390df0044a6b69da45c0f4cdd2d78a1cdc3b90b05172190f6c06221dee
+</code></pre>
 <h2 id="need-everyones-validator-info-ol-whoami"><a class="header" href="#need-everyones-validator-info-ol-whoami">Need Everyone's Validator info <code>ol whoami</code></a></h2>
 <p><a href="https://docs.google.com/spreadsheets/d/17Hd0xhIXdNmstLkI4cY5FBm6KrgdgZyWpBV3LK6CN-E/edit#gid=0">google sheet</a></p>
 <p>@nibbler</p>
