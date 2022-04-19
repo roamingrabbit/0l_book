@@ -1167,6 +1167,22 @@ Test tower submission on Eagle @0D | 0o-de-lally</li>
 @Barmaley —  @gnudrew25 db snapshot to this public URL: <a href="https://storage.googleapis.com/0l167/0L.167.tar.xz">https://storage.googleapis.com/0l167/0L.167.tar.xz</a>
 <strong>This db will be required for the rescue effort.</strong></li>
 </ul>
+<h3 id="validators-1"><a class="header" href="#validators-1">Validators</a></h3>
+<ol>
+<li>@OD</li>
+<li>Abed</li>
+<li>Adal</li>
+<li>Ashiiix</li>
+<li>projecttent</li>
+<li>Daniyal</li>
+<li>drawks</li>
+<li>misko9</li>
+<li>nibbler</li>
+<li>ricoflan</li>
+<li>shashank</li>
+<li>svanakin</li>
+<li>Wade|TPT</li>
+</ol>
 <h3 id="nibblers-attempt"><a class="header" href="#nibblers-attempt">@nibbler's attempt</a></h3>
 <p>Attempting to bring up validator on a new server</p>
 <ol>
@@ -1182,7 +1198,8 @@ and made a symlink to the mounted from the .0l home dir <code>ln -s /mnt/disks/d
 </ol>
 <p>TODO: when ready will reassign the IP associated with the current validator to the new validator box
 <code>104.197.186.76</code> and hope it all works...
-4. reassigned ip, validator came up with db snapshot.</p>
+4. reassigned ip, validator came up with db snapshot.
+5. made it through steps <code>make check</code> </p>
 <h3 id="need"><a class="header" href="#need">Need</a></h3>
 <ul>
 <li>account address</li>
@@ -1202,13 +1219,20 @@ to get info for <code>validator.yaml</code></li>
 <li>all validators in rescue mission can find each other, then should start producing blocks.</li>
 </ol>
 <h2 id="steps"><a class="header" href="#steps">Steps</a></h2>
+<p>1 </p>
 <pre><code class="language-console">$ git checkout release-rescue-mission -f
 $ make tx
-$ git pull
+Finished dev [unoptimized + debuginfo] target(s) in 3m 53s
+     Running `target/debug/diem-writeset-generator --db /home/0L/.0L/db --output /home/0L/.0L/rescue/rescue.blob rescue ECAF65ADD1B785B0495E3099F4045EC0`
+encode stdlib changeset
+
 </code></pre>
 <ol start="2">
-<li></li>
+<li>after it finishes run </li>
 </ol>
+<pre><code>$ make check 
+</code></pre>
+<p>check in <code>ol/rescue</code> look for waypoint</p>
 <h2 id="need-everyones-validator-info-ol-whoami"><a class="header" href="#need-everyones-validator-info-ol-whoami">Need Everyone's Validator info <code>ol whoami</code></a></h2>
 <p>@nibbler</p>
 <pre><code class="language-json">ol whoami
@@ -1218,7 +1242,6 @@ Enter your 0L mnemonic:
 0L ACCOUNT
 
 address: 34B5D5E56EC27D954AC5D40B24D11422
-authentication key (for account creation): 6eb7c6ed409a3aad568734402fe9614c34b5d5e56ec27d954ac5d40b24d11422
 ...
 ----- noise protocol addresses -----
 
