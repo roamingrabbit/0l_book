@@ -1219,10 +1219,12 @@ to get info for <code>validator.yaml</code></li>
 <li>all validators in rescue mission can find each other, then should start producing blocks.</li>
 </ol>
 <h2 id="steps"><a class="header" href="#steps">Steps</a></h2>
-<p>1 </p>
+<ol>
+<li>check out release-rescue-mission branch </li>
+</ol>
 <pre><code class="language-console">$ git checkout release-rescue-mission -f
 $ make tx
-Finished dev [unoptimized + debuginfo] target(s) in 3m 53s
+ Finished dev [unoptimized + debuginfo] target(s) in 3m 53s
      Running `target/debug/diem-writeset-generator --db /home/0L/.0L/db --output /home/0L/.0L/rescue/rescue.blob rescue ECAF65ADD1B785B0495E3099F4045EC0`
 encode stdlib changeset
 
@@ -1231,14 +1233,16 @@ encode stdlib changeset
 <li>after it finishes run </li>
 </ol>
 <pre><code>$ make check 
+
+cat: /home/0L/.0L/rescue_waypoint.txt: No such file or directory
+cd /home/0L/libra &amp;&amp; cargo r -p db-bootstrapper -- $HOME/.0L/db/ --genesis-txn-file $HOME/.0L/rescue/rescue.blob | grep -oP 'waypoint: \K\w+:\w+' &gt; $HOME/.0L/rescue/rescue_waypoint.txt
+
 </code></pre>
 <p>check in <code>ol/rescue</code> look for waypoint</p>
 <h2 id="need-everyones-validator-info-ol-whoami"><a class="header" href="#need-everyones-validator-info-ol-whoami">Need Everyone's Validator info <code>ol whoami</code></a></h2>
-<p><a href="https://docs.google.com/spreadsheets/d/17Hd0xhIXdNmstLkI4cY5FBm6KrgdgZyWpBV3LK6CN-E/edit#gid=0">google sheet</a>
-@nibbler</p>
-<pre><code class="language-json">ol whoami
-Enter your 0L mnemonic:
-🔑
+<p><a href="https://docs.google.com/spreadsheets/d/17Hd0xhIXdNmstLkI4cY5FBm6KrgdgZyWpBV3LK6CN-E/edit#gid=0">google sheet</a></p>
+<p>@nibbler</p>
+<pre><code class="language-console">$ ol whoami
 
 0L ACCOUNT
 
@@ -1251,6 +1255,12 @@ Validator (encrypted) address on VALIDATOR network
 /ip4/104.197.186.76/tcp/6180/ln-noise-ik/c61044a4544c832bd998e0eded2fa7798a8f59b8219e0c9eef718c8b6f804b2a/ln-handshake/0
 
 </code></pre>
+<h3 id="additional-notes"><a class="header" href="#additional-notes">Additional Notes</a></h3>
+<ul>
+<li>snapshot doesn't work at epoch boundry?</li>
+<li>failing on tool that produces writeset.</li>
+<li>writeset looks into db, and then fails.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="working-groups"><a class="header" href="#working-groups">Working Groups</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="engineering-working-group"><a class="header" href="#engineering-working-group">Engineering Working Group</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="governance-working-group"><a class="header" href="#governance-working-group">Governance Working Group</a></h2>
