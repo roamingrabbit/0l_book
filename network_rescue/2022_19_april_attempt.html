@@ -224,6 +224,22 @@ Caused by:
 make: *** [Makefile:60: check] Error 1
 </code></pre>
 <p><strong>solution</strong> inc ulimit <code>$ ulimit -n 500000</code></p>
+<pre><code># increase file descriptors
+ulimit -n 500000
+# check that they have been increased
+ulimit -n
+500000
+</code></pre>
+<p>or edit the <code>/etc/security/limits.conf</code> file to make this change persistent across sessions:</p>
+<pre><code>sudo vim /etc/security/limits.conf`
+</code></pre>
+<p>append to the end of the <code>limits.conf</code>. replace <code>yourusername</code> with the output from <code>whoami</code>.</p>
+<pre><code>yourusername soft    nproc          500000 
+yourusername soft    nproc          500000
+yourusername hard    nproc          500000
+yourusername soft    nofile         500000
+</code></pre>
+<p><strong>success should look like</strong></p>
 <pre><code class="language-console">Running `target/debug/db-bootstrapper /home/0L/.0L/db/ --genesis-txn-file /home/0L/.0L/rescue/rescue.blob`
 [execution/executor/src/db_bootstrapper.rs:138] &amp;next_epoch = 168
 [execution/executor/src/db_bootstrapper.rs:139] &quot;epoch&quot; = &quot;epoch&quot;
