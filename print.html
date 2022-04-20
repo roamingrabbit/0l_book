@@ -1414,6 +1414,63 @@ change </p>
   outbound_rate_limit_config: ~
 failpoints: ~
 </code></pre>
+<p>Seeds example</p>
+<pre><code class="language-yaml">  seeds:
+    7EC16859C24200D8E074809D252AC740:
+      addresses:
+        - &quot;/ip4/35.231.138.89/tcp/6180/ln-noise-ik/987f636ef651abc3bc0ad1a33ef2e5841768fde064971333059d84442bb3d576/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    46A7A744B5D33C47F6B20766F8088B10:
+      addresses:
+        - &quot;/ip4/35.192.123.205/tcp/6180/ln-noise-ik/da9ea456e1d9f45810669ecfcdb9f75a4d828a7e7a97f68014f47d789972a710/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    ECAF65ADD1B785B0495E3099F4045EC0:
+      addresses:
+        - &quot;/ip4/34.145.88.77/tcp/6180/ln-noise-ik/14680097d0ae4d37158ade5c90da4ce43b13c5dbeb918016f0cc8e9830f54f33/ln-handshake/0&quot;
+
+</code></pre>
+<h2 id="nibblers-log"><a class="header" href="#nibblers-log">Nibblers log</a></h2>
+<pre><code class="language-console">$ cd libra/language/diem-tools/writeset-transaction-generator
+$ make tx
+Finished dev [unoptimized + debuginfo] target(s) in 3m 37s
+Running `target/debug/diem-writeset-generator --db /home/0L/.0L/db --output /home/0L/.0L/rescue/rescue.blob rescue 46A7A744B5D33C47F6B20766F8088B10`
+encode stdlib changeset
+</code></pre>
+<pre><code class="language-console">$ make check
+[execution/executor/src/db_bootstrapper.rs:138] &amp;next_epoch = 168
+[execution/executor/src/db_bootstrapper.rs:139] &quot;epoch&quot; = &quot;epoch&quot;
+[execution/executor/src/db_bootstrapper.rs:139] &amp;get_state_epoch(&amp;state_view)? = 168
+Waypoint: 37235343:8d0ccb390df0044a6b69da45c0f4cdd2d78a1cdc3b90b05172190f6c06221dee
+
+$ cat rescue_waypoint.txt
+37235343:8d0ccb390df0044a6b69da45c0f4cdd2d78a1cdc3b90b05172190f6c06221dee
+
+export VALS=&quot;4B08C148F5E80962BE1E5755F0D2ED29 1C03E956DD7AFC612E4EFE240C23365D 
+012338b54ba4625adcc313394d87819c 987be6e871faeedfe255b4305b4c6d02 
+D96E89E270A5273D94BC8AB7953754F9 D1C9CE9308B0BDC6DC2BA6A7B5DA8C2B&quot;
+
+validator seeds doesn't mean in valdiator set
+VALS = 46A7A744B5D33C47F6B20766F8088B10
+</code></pre>
+<h2 id="changes"><a class="header" href="#changes">changes</a></h2>
+<p>better tools for permission
+permission trees / ancestory
+makewhole 
+voucher info - validators identifying other trusted peers</p>
+<p>TODO</p>
+<ol>
+<li>genesis tx</li>
+<li>start db again</li>
+<li>then stop it</li>
+<li>then another writeset tx for migration
+means could start a network, then stop it
+someone apply tx 
+then shart the snapshot with everyone else</li>
+</ol>
+<p>or </p>
+<p>1 person first apply initial writeset tx 
+2. create snap share
+3. everyone does second writeset tx.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="working-groups"><a class="header" href="#working-groups">Working Groups</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="engineering-working-group"><a class="header" href="#engineering-working-group">Engineering Working Group</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="governance-working-group"><a class="header" href="#governance-working-group">Governance Working Group</a></h2>
