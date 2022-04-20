@@ -35,6 +35,7 @@
 # Network Rescues
   - [2022 April 100 onboard](./network_rescue/2022_april.md)
     - [2022 19 April attempt](./network_rescue/2022_19_april_attempt.md)
+    - [2022 20 April attempt](./network_rescue/2022_20_april_attempt.md)
 
 # Get Involved 
 - [Working Groups](./wg/README.md)
