@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>2022 20 April attempt - The 0L Developer Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Mission</a></li><li class="chapter-item expanded affix "><li class="part-title">0L Technology Participants</li><li class="chapter-item expanded "><a href="../tech_participants/carpe_miners.html"><strong aria-hidden="true">1.</strong> carpe miners</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> nodes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech_participants/validators.html"><strong aria-hidden="true">2.1.</strong> validators</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech_participants/validator_onboarding.html"><strong aria-hidden="true">2.1.1.</strong> onboarding</a></li><li class="chapter-item expanded "><a href="../tech_participants/validator_backup.html"><strong aria-hidden="true">2.1.2.</strong> backing up</a></li></ol></li><li class="chapter-item expanded "><a href="../tech_participants/fullnodes.html"><strong aria-hidden="true">2.2.</strong> fullnodes</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Developer Guide</li><li class="chapter-item expanded "><a href="../developer_guide/libra_core/index.html"><strong aria-hidden="true">3.</strong> libra-core</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/libra_core/diem-node.html"><strong aria-hidden="true">3.1.</strong> diem-node</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/libra_core/diem-node_config.html"><strong aria-hidden="true">3.1.1.</strong> config</a></li></ol></li><li class="chapter-item expanded "><a href="../developer_guide/libra_core/consensus.html"><strong aria-hidden="true">3.2.</strong> consensus</a></li><li class="chapter-item expanded "><a href="../developer_guide/libra_core/language.html"><strong aria-hidden="true">3.3.</strong> lanaguage move</a></li></ol></li><li class="chapter-item expanded "><a href="../developer_guide/move/index.html"><strong aria-hidden="true">4.</strong> move</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/move/move_stdlib.html"><strong aria-hidden="true">4.1.</strong> move stdlib</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/move/move_stdlib_makechanges.html"><strong aria-hidden="true">4.1.1.</strong> make changes</a></li><li class="chapter-item expanded "><a href="../developer_guide/move/move_stdlib_hotupgrades.html"><strong aria-hidden="true">4.1.2.</strong> hot upgrades</a></li><li class="chapter-item expanded "><a href="../developer_guide/move/move_stdlib_test.html"><strong aria-hidden="true">4.1.3.</strong> test stdlib</a></li></ol></li><li class="chapter-item expanded "><a href="../developer_guide/move/hello_world_move_mod.html"><strong aria-hidden="true">4.2.</strong> &quot;Hello, World!&quot; move module</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/move/deploy_smartcontract.html"><strong aria-hidden="true">4.2.1.</strong> deploying</a></li><li class="chapter-item expanded "><a href="../developer_guide/move/interact_with_smartcontract.html"><strong aria-hidden="true">4.2.2.</strong> interacting</a></li><li class="chapter-item expanded "><a href="../developer_guide/move/FAQ.html"><strong aria-hidden="true">4.2.3.</strong> FAQ</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../developer_guide/carpe/index.html"><strong aria-hidden="true">5.</strong> carpe</a></li><li class="chapter-item expanded "><a href="../developer_guide/bridge/index.html"><strong aria-hidden="true">6.</strong> bridge</a></li><li class="chapter-item expanded "><a href="../developer_guide/testnet/index.html"><strong aria-hidden="true">7.</strong> testnet</a></li><li class="chapter-item expanded "><a href="../developer_guide/ops/index.html"><strong aria-hidden="true">8.</strong> operations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/ops/error_codes.html"><strong aria-hidden="true">8.1.</strong> error codes</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Network Rescues</li><li class="chapter-item expanded "><a href="../network_rescue/2022_april.html"><strong aria-hidden="true">9.</strong> 2022 April 100 onboard</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network_rescue/2022_19_april_attempt.html"><strong aria-hidden="true">9.1.</strong> 2022 19 April attempt</a></li><li class="chapter-item expanded "><a href="../network_rescue/2022_20_april_attempt.html" class="active"><strong aria-hidden="true">9.2.</strong> 2022 20 April attempt</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Get Involved</li><li class="chapter-item expanded "><a href="../wg/index.html"><strong aria-hidden="true">10.</strong> Working Groups</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../wg/eng_wg.html"><strong aria-hidden="true">10.1.</strong> engineering-wg</a></li><li class="chapter-item expanded "><a href="../wg/gov_wg.html"><strong aria-hidden="true">10.2.</strong> governance-wg</a></li><li class="chapter-item expanded "><a href="../wg/analytics_wg.html"><strong aria-hidden="true">10.3.</strong> analytics-wg</a></li><li class="chapter-item expanded "><a href="../wg/brand_and_commons_wg.html"><strong aria-hidden="true">10.4.</strong> branding-and-commons-wg</a></li><li class="chapter-item expanded "><a href="../wg/coordinators_wg.html"><strong aria-hidden="true">10.5.</strong> coordinators-wg</a></li></ol></li><li class="chapter-item expanded "><a href="../wg/index.html"><strong aria-hidden="true">11.</strong> Hustle Karma</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> Appendix</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../keyword_acronyms.html"><strong aria-hidden="true">12.1.</strong> Keywords / Acronyms</a></li><li class="chapter-item expanded "><a href="../FAQ.html"><strong aria-hidden="true">12.2.</strong> FAQ</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The 0L Developer Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="2022-20-april-attempt"><a class="header" href="#2022-20-april-attempt">2022 20 April attempt</a></h1>
+<p>@Ashiiix<br />
+Modifications in the validator yaml file (manual instructions) use @drawks method first:
+1- add the seeds in validator_network.seeds<br />
+2- change the discovery_method (validator_network.discovery_method) to none<br />
+3- remove the entire section 'full_node_networks'<br />
+75426314240 Apr 15 02:29 0L.167.tar.xz*<br />
+git log
+commit 412dbdaa832c19792a25d43170452dfda40173ca (HEAD -&gt; rescue-mission, origin/rescue-mission)</p>
+<p>@drawks<br />
+<code>python3 -c 'import yaml;</code><br />
+<code>yaml.safe_load(open(&quot;.0L/validator.node.yaml&quot;))'</code><br />
+this is a quick command you can use to validate that your validator node config is parsable yaml. I know people often have whitespace indenting problems when pasting into yaml documents</p>
+<h2 id="example-validatoryaml"><a class="header" href="#example-validatoryaml">Example validator.yaml</a></h2>
+<p>see validator list in <a href="https://docs.google.com/spreadsheets/d/17Hd0xhIXdNmstLkI4cY5FBm6KrgdgZyWpBV3LK6CN-E/edit#gid=0">validator ip google sheet</a>
+change </p>
+<ol>
+<li><code> discovery_method:</code> to  <code>discovery_method: none</code></li>
+<li><code>seeds: {}</code> to</li>
+</ol>
+<pre><code class="language-yaml">validator_network:
+  max_connection_delay_ms: 60000
+  connection_backoff_base: 2
+  connectivity_check_interval_ms: 5000
+  network_channel_size: 1024
+  max_concurrent_network_reqs: 100
+  discovery_method: none 
+  identity:
+    type: from_storage
+    backend:
+      type: on_disk_storage
+      path: /home/0L/.0L/key_store.json
+      namespace: 34b5d5e56ec27d954ac5d40b24d11422-oper
+    key_name: validator_network
+    peer_id_name: owner_account
+  listen_address: /ip4/0.0.0.0/tcp/6180
+  mutual_authentication: true
+  network_address_key_backend:
+    type: on_disk_storage
+    path: /home/0L/.0L/key_store.json
+    namespace: 34b5d5e56ec27d954ac5d40b24d11422-oper
+  network_id: validator
+  seed_addrs: {}
+  seeds: {}
+  max_frame_size: 8388608
+  enable_proxy_protocol: false
+  ping_interval_ms: 1000
+  ping_timeout_ms: 10000
+  ping_failures_tolerated: 10000
+  max_outbound_connections: 100
+  max_inbound_connections: 100
+  inbound_rate_limit_config: ~
+  outbound_rate_limit_config: ~
+failpoints: ~
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../network_rescue/2022_19_april_attempt.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../wg/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../network_rescue/2022_19_april_attempt.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../wg/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
