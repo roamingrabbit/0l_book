@@ -284,6 +284,28 @@ D96E89E270A5273D94BC8AB7953754F9 D1C9CE9308B0BDC6DC2BA6A7B5DA8C2B&quot;
 validator seeds doesn't mean in valdiator set
 VALS = 46A7A744B5D33C47F6B20766F8088B10
 </code></pre>
+<p>ok same set of vals before 4:43et</p>
+<pre><code>$ export VALS=&quot;D1281DE242839FC939745996882C5FC2 4B08C148F5E80962BE1E5755F0D2ED29 D96E89E270A5273D94BC8AB7953754F9 34b5d5e56ec27d954ac5d40b24d11422 987be6e871faeedfe255b4305b4c6d02 46A7A744B5D33C47F6B20766F8088B10 E264023342B41ACCDBB61A190B6CB2A7&quot;
+$ cd ~/libra/language/diem-tools/writeset-transaction-generator
+$ make tx
+ Finished dev [unoptimized + debuginfo] target(s) in 0.62s
+     Running `target/debug/diem-writeset-generator --db /home/0L/.0L/db --output /home/0L/.0L/rescue/rescue.blob rescue 4B08C148F5E80962BE1E5755F0D2ED29 D96E89E270A5273D94BC8AB7953754F9 34b5d5e56ec27d954ac5d40b24d11422 987be6e871faeedfe255b4305b4c6d02 46A7A744B5D33C47F6B20766F8088B10 E264023342B41ACCDBB61A190B6CB2A7 8186f4d8fdd09dfe02963b0b4c385105`
+encode stdlib changeset
+
+$ make check
+    Finished dev [unoptimized + debuginfo] target(s) in 0.57s
+     Running `target/debug/db-bootstrapper /home/0L/.0L/db/ --genesis-txn-file /home/0L/.0L/rescue/rescue.blob`
+[execution/executor/src/db_bootstrapper.rs:138] &amp;next_epoch = 168
+[execution/executor/src/db_bootstrapper.rs:139] &quot;epoch&quot; = &quot;epoch&quot;
+[execution/executor/src/db_bootstrapper.rs:139] &amp;get_state_epoch(&amp;state_view)? = 168
+Waypoint: 37235343:8d0ccb390df0044a6b69da45c0f4cdd2d78a1cdc3b90b05172190f6c06221dee
+
+$ cat ~/.0L/rescue/rescue_waypoint.txt
+37235343:8d0ccb390df0044a6b69da45c0f4cdd2d78a1cdc3b90b05172190f6c06221dee 
+
+Wrong waypoint, delete db and untar again...
+$ cd ~/libra/language/diem-tools/writeset-transaction-generator 
+</code></pre>
 <h2 id="changes"><a class="header" href="#changes">changes</a></h2>
 <p>better tools for permission
 permission trees / ancestory
