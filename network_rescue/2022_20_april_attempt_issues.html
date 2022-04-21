@@ -233,6 +233,20 @@ restarted validator 2022-04-21 12:30 EST
 2022-04-21T18:17:08.081901Z [network-Validator] ERROR network/src/peer_manager/mod.rs:1227 [validator,Validator,34b5d5e5] Outbound connection failed for peer 7ec16859 at /ip4/35.231.138.89/tcp/6180/ln-noise-ik/987f636ef651abc3bc0ad1a33ef2e5841768fde064971333059d84442bb3d576/ln-handshake/0: Transport error: timeout elapsed {&quot;error&quot;:&quot;Transport error: timeout elapsed&quot;,&quot;network_address&quot;:&quot;/ip4/35.231.138.89/tcp/6180/ln-noise-ik/987f636ef651abc3bc0ad1a33ef2e5841768fde064971333059d84442bb3d576/ln-handshake/0&quot;,&quot;network_context&quot;:{&quot;role&quot;:&quot;validator&quot;,&quot;network_id&quot;:&quot;Validator&quot;,&quot;peer_id&quot;:&quot;34b5d5e56ec27d954ac5d40b24d11422&quot;},&quot;remote_peer&quot;:&quot;7EC16859C24200D8E074809D252AC740&quot;}
 2022-04-21T18:17:12.781234Z [network-Validator] ERROR network/src/peer_manager/mod.rs:1227 [validator,Validator,34b5d5e5] Outbound connection failed for peer 46a7a744 at /ip4/35.192.123.205/tcp/6180/ln-noise-ik/da9ea456e1d9f45810669ecfcdb9f75a4d828a7e7a97f68014f47d789972a710/ln-handshake/0: Transport error: timeout elapsed {&quot;error&quot;:&quot;Transport error: timeout elapsed&quot;,&quot;network_address&quot;:&quot;/ip4/35.192.123.205/tcp/6180/ln-noise-ik/da9ea456e1d9f45810669ecfcdb9f75a4d828a7e7a97f68014f47d789972a710/ln-handshake/0&quot;,&quot;network_context&quot;:{&quot;role&quot;:&quot;validator&quot;,&quot;network_id&quot;:&quot;Validator&quot;,&quot;peer_id&quot;:&quot;34b5d5e56ec27d954ac5d40b24d11422&quot;},&quot;remote_peer&quot;:&quot;46A7A744B5D33C47F6B20766F8088B10&quot;}
 </code></pre>
+<h3 id="nibber-fix"><a class="header" href="#nibber-fix">@nibber Fix</a></h3>
+<p>thanks to @drawks &amp; @OD
+was a RAM issue had 4GB and on network sync it would crash</p>
+<pre><code>free -h
+              total        used        free      shared  buff/cache   available
+Mem:          3.8Gi       3.5Gi       104Mi       0.0Ki       185Mi        85Mi
+Swap:            0B          0B          0B
+</code></pre>
+<p>upgraded box to 8GB (2 cores) running sync brought it down free mem to 1.9GB</p>
+<pre><code>free -h
+              total        used        free      shared  buff/cache   available
+Mem:          7.8Gi       6.7Gi       127Mi       0.0Ki       923Mi       897Mi
+Swap:            0B          0B          0B
+</code></pre>
 <p>Successful Start log from 2022 20 April</p>
 <pre><code>2022-04-20T21:25:10.678234Z [state-sync] ERROR state-sync/src/coordinator.rs:1314 {&quot;error&quot;:&quot;SyncedBeyondTarget(37235488, 37235488)&quot;,&quot;name&quot;:&quot;send_chunk_request&quot;}
 ====================================== 2 ======================================
@@ -257,6 +271,20 @@ restarted validator 2022-04-21 12:30 EST
 0L ==== stdlib upgrade: checking for stdlib upgrade
 ====================================== 3 ======================================
 [move print] 100100
+</code></pre>
+<h3 id="thenateway"><a class="header" href="#thenateway">@thenateway</a></h3>
+<p>i changed one thing in my config
+that i had never really understood what it did
+i had this hardcoded waypoint info (which always seemed to work before these mainnet issues):</p>
+<pre><code>waypoint:
+  from_config: &quot;8567508:fdb9f2b120e7527dd6c8725533ab686500a8ccbeaf111088ebe2f46c18b3f4f2&quot;
+</code></pre>
+<p>and then i switched it to:</p>
+<pre><code>waypoint:
+  from_storage:
+    type: on_disk_storage
+    path: /home/node/.0L/key_store.json
+    namespace: e264023342b41accdbb61a190b6cb2a7-oper
 </code></pre>
 
                     </main>
