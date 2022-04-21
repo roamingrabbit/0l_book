@@ -1,5 +1,12 @@
 # 2022 20 April attempt
 
+### Outcome 
+
+Successfully started a network with the following validators  
+`export VALS="4B08C148F5E80962BE1E5755F0D2ED29 1C03E956DD7AFC612E4EFE240C23365D
+012338b54ba4625adcc313394d87819c 987be6e871faeedfe255b4305b4c6d02
+D96E89E270A5273D94BC8AB7953754F9 D1C9CE9308B0BDC6DC2BA6A7B5DA8C2B"`
+
 @Ashiiix  
 Modifications in the validator yaml file (manual instructions) use @drawks method first:
 1- add the seeds in validator_network.seeds  
