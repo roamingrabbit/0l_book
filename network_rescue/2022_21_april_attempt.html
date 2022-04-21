@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>2022 21 April attempt - The 0L Developer Book</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Mission</a></li><li class="chapter-item expanded affix "><li class="part-title">0L Technology Participants</li><li class="chapter-item expanded "><a href="../tech_participants/carpe_miners.html"><strong aria-hidden="true">1.</strong> carpe miners</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> nodes</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech_participants/validators.html"><strong aria-hidden="true">2.1.</strong> validators</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tech_participants/validator_onboarding.html"><strong aria-hidden="true">2.1.1.</strong> onboarding</a></li><li class="chapter-item expanded "><a href="../tech_participants/validator_backup.html"><strong aria-hidden="true">2.1.2.</strong> backing up</a></li></ol></li><li class="chapter-item expanded "><a href="../tech_participants/fullnodes.html"><strong aria-hidden="true">2.2.</strong> fullnodes</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Developer Guide</li><li class="chapter-item expanded "><a href="../developer_guide/libra_core/index.html"><strong aria-hidden="true">3.</strong> libra-core</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/libra_core/diem-node.html"><strong aria-hidden="true">3.1.</strong> diem-node</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/libra_core/diem-node_config.html"><strong aria-hidden="true">3.1.1.</strong> config</a></li></ol></li><li class="chapter-item expanded "><a href="../developer_guide/libra_core/consensus.html"><strong aria-hidden="true">3.2.</strong> consensus</a></li><li class="chapter-item expanded "><a href="../developer_guide/libra_core/language.html"><strong aria-hidden="true">3.3.</strong> lanaguage move</a></li></ol></li><li class="chapter-item expanded "><a href="../developer_guide/move/index.html"><strong aria-hidden="true">4.</strong> move</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/move/move_stdlib.html"><strong aria-hidden="true">4.1.</strong> move stdlib</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/move/move_stdlib_makechanges.html"><strong aria-hidden="true">4.1.1.</strong> make changes</a></li><li class="chapter-item expanded "><a href="../developer_guide/move/move_stdlib_hotupgrades.html"><strong aria-hidden="true">4.1.2.</strong> hot upgrades</a></li><li class="chapter-item expanded "><a href="../developer_guide/move/move_stdlib_test.html"><strong aria-hidden="true">4.1.3.</strong> test stdlib</a></li></ol></li><li class="chapter-item expanded "><a href="../developer_guide/move/hello_world_move_mod.html"><strong aria-hidden="true">4.2.</strong> &quot;Hello, World!&quot; move module</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/move/deploy_smartcontract.html"><strong aria-hidden="true">4.2.1.</strong> deploying</a></li><li class="chapter-item expanded "><a href="../developer_guide/move/interact_with_smartcontract.html"><strong aria-hidden="true">4.2.2.</strong> interacting</a></li><li class="chapter-item expanded "><a href="../developer_guide/move/FAQ.html"><strong aria-hidden="true">4.2.3.</strong> FAQ</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../developer_guide/carpe/index.html"><strong aria-hidden="true">5.</strong> carpe</a></li><li class="chapter-item expanded "><a href="../developer_guide/bridge/index.html"><strong aria-hidden="true">6.</strong> bridge</a></li><li class="chapter-item expanded "><a href="../developer_guide/testnet/index.html"><strong aria-hidden="true">7.</strong> testnet</a></li><li class="chapter-item expanded "><a href="../developer_guide/ops/index.html"><strong aria-hidden="true">8.</strong> operations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../developer_guide/ops/error_codes.html"><strong aria-hidden="true">8.1.</strong> error codes</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Network Rescues</li><li class="chapter-item expanded "><a href="../network_rescue/2022_april.html"><strong aria-hidden="true">9.</strong> 2022 April 100 onboard</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network_rescue/2022_19_april_attempt.html"><strong aria-hidden="true">9.1.</strong> 2022 19 April attempt</a></li><li class="chapter-item expanded "><a href="../network_rescue/2022_20_april_attempt.html"><strong aria-hidden="true">9.2.</strong> 2022 20 April attempt</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../network_rescue/2022_20_april_attempt_issues.html"><strong aria-hidden="true">9.2.1.</strong> 2022 20 April issues</a></li></ol></li><li class="chapter-item expanded "><a href="../network_rescue/2022_21_april_attempt.html" class="active"><strong aria-hidden="true">9.3.</strong> 2022 21 April attempt</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Get Involved</li><li class="chapter-item expanded "><a href="../wg/index.html"><strong aria-hidden="true">10.</strong> Working Groups</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../wg/eng_wg.html"><strong aria-hidden="true">10.1.</strong> engineering-wg</a></li><li class="chapter-item expanded "><a href="../wg/gov_wg.html"><strong aria-hidden="true">10.2.</strong> governance-wg</a></li><li class="chapter-item expanded "><a href="../wg/analytics_wg.html"><strong aria-hidden="true">10.3.</strong> analytics-wg</a></li><li class="chapter-item expanded "><a href="../wg/brand_and_commons_wg.html"><strong aria-hidden="true">10.4.</strong> branding-and-commons-wg</a></li><li class="chapter-item expanded "><a href="../wg/coordinators_wg.html"><strong aria-hidden="true">10.5.</strong> coordinators-wg</a></li></ol></li><li class="chapter-item expanded "><a href="../wg/index.html"><strong aria-hidden="true">11.</strong> Hustle Karma</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> Appendix</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../keyword_acronyms.html"><strong aria-hidden="true">12.1.</strong> Keywords / Acronyms</a></li><li class="chapter-item expanded "><a href="../FAQ.html"><strong aria-hidden="true">12.2.</strong> FAQ</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The 0L Developer Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="2022-21-april-attempt"><a class="header" href="#2022-21-april-attempt">2022 21 April attempt</a></h1>
+<h2 id="prerequisite"><a class="header" href="#prerequisite">Prerequisite</a></h2>
+<p>VM requirements 
+250GB
+&gt;= 8GB RAM</p>
+<ol>
+<li>
+<p>obtain 70GB tar db <a href="https://home.gouin.io:5443/0L.167.tar.x">https://home.gouin.io:5443/0L.167.tar.xz</a></p>
+</li>
+<li>
+<p>untar it to your <code>db</code> dir set in your config file.</p>
+</li>
+<li>
+<p>checkout network reboot release</p>
+<pre><code class="language-console">$ git fetch &amp;&amp; git checkout release-v5.1.0 -f
+</code></pre>
+</li>
+<li>
+<p>make sure everyone is on the same commit</p>
+<pre><code class="language-console"> $ git log
+ commit 56a0d296bce022ec3c1d96f8b8321099d56ab255
+</code></pre>
+</li>
+<li>
+<p>export Vals list for the intial network (TODO: What IS THIS???)</p>
+<pre><code class="language-console"> $  export VALS=&quot;D1281DE242839FC939745996882C5FC2 4B08C148F5E80962BE1E5755F0D2ED29 D96E89E270A5273D94BC8AB7953754F9 34b5d5e56ec27d954ac5d40b24d11422 987be6e871faeedfe255b4305b4c6d02 46A7A744B5D33C47F6B20766F8088B10 E264023342B41ACCDBB61A190B6CB2A7&quot;
+</code></pre>
+</li>
+<li>
+<p>build the necessary tools, <code>make tx</code></p>
+<pre><code> $ cd ./language/diem-tools/writeset-transaction-generator
+ $ make tx
+</code></pre>
+</li>
+</ol>
+<pre><code class="language-console">$  make check
+$  cat ~/.0L/rescue/rescue_waypoint.txt 
+??????
+
+$ make commit
+$ make init
+
+## Start diem node with make start or  diem-node -f ~/.0L/validator.node.yaml &gt;&gt; ~/.0L/logs/validator.log 2&gt;&amp;1
+
+</code></pre>
+<h2 id="validatoryaml-seeds"><a class="header" href="#validatoryaml-seeds">Validator.yaml seeds</a></h2>
+<pre><code class="language-yaml">network_id: validator
+  seeds:
+    012338B54BA4625ADCC313394D87819C:
+      addresses:
+        - &quot;/ip4/63.229.234.74/tcp/6180/ln-noise-ik/7825869ae4c0cb91bbd8027ce16c64680f84c979320f8921fc76a17c7bec6f32/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    BA28F081DE02FC6CC3BF9879D6033911:
+      addresses:
+        - &quot;/ip4/143.198.246.18/tcp/6180/ln-noise-ik/0b9a4aa50102f1d5ec92e6387606dbb0113f733c467e94379fbda14e24abc622/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    6A9F0FA0B6BD687F4343D8880B40F697:
+      addresses:
+        - &quot;/ip4/104.154.197.161/tcp/6180/ln-noise-ik/5383842944072588806676e9433d45ea934eb4f45c734ac0ed1b272d42ab967e/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    4c95e7b998b4e66ef666fe12930a4d5c:
+      addresses:
+        - &quot;/ip4/34.70.87.157/tcp/6180/ln-noise-ik/836219f8733d0c2663c0164568e079dcc0a1e6b24ab5c8bc09e157f17101a202/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    7EC16859C24200D8E074809D252AC740:
+      addresses:
+        - &quot;/ip4/35.231.138.89/tcp/6180/ln-noise-ik/987f636ef651abc3bc0ad1a33ef2e5841768fde064971333059d84442bb3d576/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    46A7A744B5D33C47F6B20766F8088B10:
+      addresses:
+        - &quot;/ip4/35.192.123.205/tcp/6180/ln-noise-ik/da9ea456e1d9f45810669ecfcdb9f75a4d828a7e7a97f68014f47d789972a710/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    ECAF65ADD1B785B0495E3099F4045EC0:
+      addresses:
+        - &quot;/ip4/34.145.88.77/tcp/6180/ln-noise-ik/14680097d0ae4d37158ade5c90da4ce43b13c5dbeb918016f0cc8e9830f54f33/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    8186F4D8FDD09DFE02963B0B4C385105:
+      addresses:
+        - &quot;/ip4/20.39.34.205/tcp/6180/ln-noise-ik/2e7b8c6cf5abff63f88b26bd960e2c586f3723d08c895cc04c5eef3449a3905e/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    4B08C148F5E80962BE1E5755F0D2ED29:
+      addresses:
+        - &quot;/ip4/65.108.73.53/tcp/6180/ln-noise-ik/33ed842980f68a0a78d2d5d240b062c8cae59ebf58b25fa07022fd93133c457a/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    E264023342B41ACCDBB61A190B6CB2A7:
+      addresses:
+        - &quot;/ip4/137.184.118.15/tcp/6180/ln-noise-ik/e41c5b51f18d9826ca23136f0edc442d701c82c246ed1f306ece495e763df823/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    1C03E956DD7AFC612E4EFE240C23365D:
+      addresses:
+        - &quot;/ip4/161.35.228.136/tcp/6180/ln-noise-ik/a08e233ebead3c9467175df8d86a1d9ab46ce0f1c7998bdac59fc58208236837/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    56641E58ABA97FA6B7EA833F83444392:
+      addresses:
+        - &quot;/ip4/82.165.250.66/tcp/6180/ln-noise-ik/6c3f93028522845daaecf17d2c2a1359473435d9491b593e39a8c839371de03e/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    D1281DE242839FC939745996882C5FC2:
+      addresses:
+        - &quot;/ip4/172.31.11.23/tcp/6180/ln-noise-ik/e0f25c377b55581bc2c11fd03cb9ae5eba7ef276e32865d98b3e1b7436fc4020/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    987BE6E871FAEEDFE255B4305B4C6D02:
+      addresses:
+        - &quot;/ip4/3.12.14.24/tcp/6180/ln-noise-ik/cb7e573123b67b0bb957d23f0d11c65b0b5438815b3750461c3815d507fb5649/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    D96E89E270A5273D94BC8AB7953754F9:
+      addresses:
+        - &quot;/ip4/65.108.108.82/tcp/6180/ln-noise-ik/b998763ff5e33ec52baad9d3a3f395451202fee3690c8f98a372fa2c67bcca70/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    D1C9CE9308B0BDC6DC2BA6A7B5DA8C2B:
+      addresses:
+        - &quot;/ip4/34.130.72.87/tcp/6180/ln-noise-ik/6669e2741fe958f94a0a2e4965e7657b904592bb724c3e662d45d091ad473530/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    34B5D5E56EC27D954AC5D40B24D11422:
+      addresses:
+        - &quot;/ip4/104.197.186.76/tcp/6180/ln-noise-ik/c61044a4544c832bd998e0eded2fa7798a8f59b8219e0c9eef718c8b6f804b2a/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    A2FAB2DF081CD8FEED7F4D6AD2FFF459:
+      addresses:
+        - &quot;/ip4/176.9.114.29/tcp/6180/ln-noise-ik/863f660ff03a2fdc8ef3e1bf7eaf2f7f127d5bdb709a8c6af3218a09e27a790d/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    9A710919B1A1E67EDA335269C0085C91:
+      addresses:
+        - &quot;/ip4/24.229.105.9/tcp/6180/ln-noise-ik/3c37c7d6a5122a6b9ef07a11cc40e445874eb0841ae028d6326bf67768cce235/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+    B5B5BA58B8E9916FE449D1F989383834:
+      addresses:
+        - &quot;/ip4/159.223.49.139/tcp/6180/ln-noise-ik/c1954be575981591f2eabd67913c839657ac45a866b15bff40b5d80eb4d82778/ln-handshake/0&quot;
+      role: &quot;Validator&quot;
+  max_frame_size: 8388608
+  enable_proxy_protocol: false
+</code></pre>
+<h2 id="useful-commands"><a class="header" href="#useful-commands">Useful Commands</a></h2>
+<pre><code class="language-console">$ ol -a ACCOUNT query --epoch
+$ ol -a ACCOUNT query --balance
+
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../network_rescue/2022_20_april_attempt_issues.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../wg/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../network_rescue/2022_20_april_attempt_issues.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../wg/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
