@@ -148,6 +148,9 @@ $ git fetch && git checkout release-v5.1.0 -f
 $ git log
 commit 56a0d296bce022ec3c1d96f8b8321099d56ab255
 
+# export the validator list for the initial network
+$ export VALS="D1281DE242839FC939745996882C5FC2 4B08C148F5E80962BE1E5755F0D2ED29 D96E89E270A5273D94BC8AB7953754F9 34b5d5e56ec27d954ac5d40b24d11422 987be6e871faeedfe255b4305b4c6d02 46A7A744B5D33C47F6B20766F8088B10 E264023342B41ACCDBB61A190B6CB2A7"
+
 # all make command run from libra/language/diem-tools/writeset-transaction-generator dir
 $ cd ./language/diem-tools/writeset-transaction-generator
 $ make tx

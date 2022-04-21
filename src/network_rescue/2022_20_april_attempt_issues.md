@@ -113,13 +113,37 @@ free -h
 Mem:          3.8Gi       3.5Gi       104Mi       0.0Ki       185Mi        85Mi
 Swap:            0B          0B          0B
 ```
-upgraded box to 8GB (2 cores) running sync brought it down free mem to 897Mi
+upgraded box to 8GB (2 cores) running sync brought it down free mem to 39Mi
 ```
 free -h
               total        used        free      shared  buff/cache   available
-Mem:          7.8Gi       6.7Gi       127Mi       0.0Ki       923Mi       897Mi
+Mem:          7.8Gi       7.6Gi       104Mi       0.0Ki        44Mi        39Mi
 Swap:            0B          0B          0B
 ```
+
+logs look good no tower running  
+```
+====================================== 20332 ======================================
+[move print] 100100
+[move print] 200100
+[move print] 200110
+[move print] 200120
+[move print] 200130
+[move print] 200131
+[move print] 200132
+[move print] 200133
+[move print] 200134
+[move print] 200140
+[move print] 200150
+[move print] 300100
+[move print] 400100
+[move print] 500100
+[move print] 500110
+[move print] 600100
+[move print] 700100
+[move print] 900200
+```
+
 Successful Start log from 2022 20 April
 
 
