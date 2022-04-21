@@ -402,8 +402,10 @@ $ make check
 [execution/executor/src/db_bootstrapper.rs:139] &amp;get_state_epoch(&amp;state_view)? = 169
 Waypoint:
 </code></pre>
-<p>once on the same waypoint: <code>37235343:6c5ec285db421a510837b7733574b43c984fa73b1f7cc969c1ac10b7bcfba88b</code></p>
-<pre><code class="language-console/home/0L/">$ cat rescue_waypoint.txt
+<p>once on the same waypoint: <code>37235489:b019393e57fdb375143d1d864843362c393ee55d4123bdd2cf0ec7a088a500f2</code></p>
+<p><strong>note</strong> if your waypoint is <code>37235343:6c5ec285db421a510837b7733574b43c984fa73b1f7cc969c1ac10b7bcfba88b</code> 
+make sure you set the <code>VALS</code> evn var (see above)</p>
+<pre><code class="language-console/home/0L/">$ cat ~/.0L/rescue/rescue_waypoint.txt
 37235489:b019393e57fdb375143d1d864843362c393ee55d4123bdd2cf0ec7a088a500f2
 
 $ make init
