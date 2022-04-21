@@ -1486,8 +1486,55 @@ failpoints: ~
       role: &quot;Validator&quot;
 
 </code></pre>
+<h2 id="instructions"><a class="header" href="#instructions">Instructions</a></h2>
+<p>Check out release should be at commit <code>56a0d296bce022ec3c1d96f8b8321099d56ab255</code></p>
+<pre><code class="language-console">$ cd libra
+$ git fetch &amp;&amp; git checkout release-v5.1.0 -f
+
+# all make command run from libra/language/diem-tools/writeset-transaction-generator dir
+$ cd ./language/diem-tools/writeset-transaction-generator
+$ make tx
+$ make check
+
+# verify that your waypoint it correct, for this session the waypoint needed to be:
+# 37235343:44f96bb61f3977f3e1a22abbd21c1f1ad9d6fe3dea3861fcf128cf909e423b22
+$ cat ~/.0L/rescue/rescue_waypoint.txt 
+7235343:44f96bb61f3977f3e1a22abbd21c1f1ad9d6fe3dea3861fcf128cf909e423b22
+
+# now your are ready for the real deal
+
+# commit your current waypoint? TDOO: Not sure this is really what is being done.
+$ make commit
+
+# init your?? TODO: maybe setting the stdlib and validator set?  
+$ make init
+
+</code></pre>
+<p>Now you are ready to run your validator node. you need at <strong>least one <code>seed</code> set 
+in the validator.yam</strong>l (see above)</p>
+<p>there are tweo ways to run your validator:</p>
+<ol>
+<li><code>make start</code> </li>
+<li>run <code>diem-node</code></li>
+</ol>
+<p><code>make start</code> will recompile everything, so this will take time, but there aren't 
+any changes to diem-node so if you have a running diem-node you are fine to start that
+as is.</p>
+<pre><code>$ diem-node -f ~/.0L/validator.node.yaml &gt;&gt; ~/.0L/logs/validator.log 2&gt;&amp;1
+</code></pre>
+<p>or</p>
+<pre><code class="language-console">$ cd ~/libra/language/diem-tools/writeset-transaction-generator
+$ make start 
+</code></pre>
 <h2 id="nibblers-log"><a class="header" href="#nibblers-log">Nibblers log</a></h2>
-<pre><code class="language-console">$ cd libra/language/diem-tools/writeset-transaction-generator
+<pre><code class="language-console">$ cd ~/libra
+$ git fetch &amp;&amp; git checkout release-v5.1.0 -f
+libra$ cd ./language/diem-tools/writeset-transaction-generator
+
+# exprt the validators that will be in the intitial set, this is important and necessary
+# to do before running the subsequent commands (not sure this is true - as it will affect the waypoint?)
+$ export VALS=&quot;D1281DE242839FC939745996882C5FC2 4B08C148F5E80962BE1E5755F0D2ED29 D96E89E270A5273D94BC8AB7953754F9 34b5d5e56ec27d954ac5d40b24d11422 987be6e871faeedfe255b4305b4c6d02 46A7A744B5D33C47F6B20766F8088B10 E264023342B41ACCDBB61A190B6CB2A7&quot;
+
 $ make tx
 Finished dev [unoptimized + debuginfo] target(s) in 3m 37s
 Running `target/debug/diem-writeset-generator --db /home/0L/.0L/db --output /home/0L/.0L/rescue/rescue.blob rescue 46A7A744B5D33C47F6B20766F8088B10`
@@ -1499,7 +1546,7 @@ encode stdlib changeset
 [execution/executor/src/db_bootstrapper.rs:139] &amp;get_state_epoch(&amp;state_view)? = 168
 Waypoint: 37235343:8d0ccb390df0044a6b69da45c0f4cdd2d78a1cdc3b90b05172190f6c06221dee
 
-$ cat rescue_waypoint.txt
+$ cat ~/.0L/rescue/rescue_waypoint.txt
 37235343:8d0ccb390df0044a6b69da45c0f4cdd2d78a1cdc3b90b05172190f6c06221dee
 
 export VALS=&quot;4B08C148F5E80962BE1E5755F0D2ED29 1C03E956DD7AFC612E4EFE240C23365D 
@@ -1507,7 +1554,6 @@ export VALS=&quot;4B08C148F5E80962BE1E5755F0D2ED29 1C03E956DD7AFC612E4EFE240C233
 D96E89E270A5273D94BC8AB7953754F9 D1C9CE9308B0BDC6DC2BA6A7B5DA8C2B&quot;
 
 validator seeds doesn't mean in valdiator set
-VALS = 46A7A744B5D33C47F6B20766F8088B10
 </code></pre>
 <p>ok same set of vals before 4:43et</p>
 <pre><code>$ export VALS=&quot;D1281DE242839FC939745996882C5FC2 4B08C148F5E80962BE1E5755F0D2ED29 D96E89E270A5273D94BC8AB7953754F9 34b5d5e56ec27d954ac5d40b24d11422 987be6e871faeedfe255b4305b4c6d02 46A7A744B5D33C47F6B20766F8088B10 E264023342B41ACCDBB61A190B6CB2A7&quot;
