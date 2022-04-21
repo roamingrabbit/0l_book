@@ -1763,6 +1763,30 @@ restarted validator 2022-04-21 12:30 EST
 2022-04-21T16:24:46.227506Z [network-Validator] ERROR network/src/peer_manager/mod.rs:1227 [validator,Validator,34b5d5e5] Outbound connection failed for peer 7ec16859 at /ip4/35.231.138.89/tcp/6180/ln-noise-ik/987f636ef651abc3bc0ad1a33ef2e5841768fde064971333059d84442bb3d576/ln-handshake/0: Transport error: timeout elapsed {&quot;error&quot;:&quot;Transport error: timeout elapsed&quot;,&quot;network_address&quot;:&quot;/ip4/35.231.138.89/tcp/6180/ln-noise-ik/987f636ef651abc3bc0ad1a33ef2e5841768fde064971333059d84442bb3d576/ln-handshake/0&quot;,&quot;network_context&quot;:{&quot;role&quot;:&quot;validator&quot;,&quot;network_id&quot;:&quot;Validator&quot;,&quot;peer_id&quot;:&quot;34b5d5e56ec27d954ac5d40b24d11422&quot;},&quot;remote_peer&quot;:&quot;7EC16859C24200D8E074809D252AC740&quot;}
 2022-04-21T16:24:46.232082Z [network-Validator] ERROR network/src/peer_manager/mod.rs:1227 [validator,Validator,34b5d5e5] Outbound connection failed for peer 46a7a744 at /ip4/35.192.123.205/tcp/6180/ln-noise-ik/da9ea456e1d9f45810669ecfcdb9f75a4d828a7e7a97f68014f47d789972a710/ln-handshake/0: Transport error: timeout elapsed {&quot;error&quot;:&quot;Transport error: timeout elapsed&quot;,&quot;network_address&quot;:&quot;/ip4/35.192.123.205/tcp/6180/ln-noise-ik/da9ea456e1d9f45810669ecfcdb9f75a4d828a7e7a97f68014f47d789972a710/ln-handshake/0&quot;,&quot;network_context&quot;:{&quot;role&quot;:&quot;validator&quot;,&quot;network_id&quot;:&quot;Validator&quot;,&quot;peer_id&quot;:&quot;34b5d5e56ec27d954ac5d40b24d11422&quot;},&quot;remote_peer&quot;:&quot;46A7A744B5D33C47F6B20766F8088B10&quot;}
 </code></pre>
+<p>Keep erroring out and need to restart validator
+<code>RUST_LOG=error diem-node -f ~/.0L/validator.node.yaml &gt;&gt; ~/.0L/logs/validator.log 2&gt;&amp;1</code></p>
+<pre><code>====================================== 9843 ======================================
+[move print] 100100
+[move print] 200100
+[move print] 200110
+[move print] 200120
+[move print] 200130
+[move print] 200131
+[move print] 200132
+[move print] 200133
+[move print] 200134
+[move print] 200140
+[move print] 200150
+[move print] 300100
+[move print] 400100
+[move print] 500100
+[move print] 500110
+[move print] 600100
+[move print] 700100
+[move print] 900200
+2022-04-21T18:17:08.081901Z [network-Validator] ERROR network/src/peer_manager/mod.rs:1227 [validator,Validator,34b5d5e5] Outbound connection failed for peer 7ec16859 at /ip4/35.231.138.89/tcp/6180/ln-noise-ik/987f636ef651abc3bc0ad1a33ef2e5841768fde064971333059d84442bb3d576/ln-handshake/0: Transport error: timeout elapsed {&quot;error&quot;:&quot;Transport error: timeout elapsed&quot;,&quot;network_address&quot;:&quot;/ip4/35.231.138.89/tcp/6180/ln-noise-ik/987f636ef651abc3bc0ad1a33ef2e5841768fde064971333059d84442bb3d576/ln-handshake/0&quot;,&quot;network_context&quot;:{&quot;role&quot;:&quot;validator&quot;,&quot;network_id&quot;:&quot;Validator&quot;,&quot;peer_id&quot;:&quot;34b5d5e56ec27d954ac5d40b24d11422&quot;},&quot;remote_peer&quot;:&quot;7EC16859C24200D8E074809D252AC740&quot;}
+2022-04-21T18:17:12.781234Z [network-Validator] ERROR network/src/peer_manager/mod.rs:1227 [validator,Validator,34b5d5e5] Outbound connection failed for peer 46a7a744 at /ip4/35.192.123.205/tcp/6180/ln-noise-ik/da9ea456e1d9f45810669ecfcdb9f75a4d828a7e7a97f68014f47d789972a710/ln-handshake/0: Transport error: timeout elapsed {&quot;error&quot;:&quot;Transport error: timeout elapsed&quot;,&quot;network_address&quot;:&quot;/ip4/35.192.123.205/tcp/6180/ln-noise-ik/da9ea456e1d9f45810669ecfcdb9f75a4d828a7e7a97f68014f47d789972a710/ln-handshake/0&quot;,&quot;network_context&quot;:{&quot;role&quot;:&quot;validator&quot;,&quot;network_id&quot;:&quot;Validator&quot;,&quot;peer_id&quot;:&quot;34b5d5e56ec27d954ac5d40b24d11422&quot;},&quot;remote_peer&quot;:&quot;46A7A744B5D33C47F6B20766F8088B10&quot;}
+</code></pre>
 <p>Successful Start log from 2022 20 April</p>
 <pre><code>2022-04-20T21:25:10.678234Z [state-sync] ERROR state-sync/src/coordinator.rs:1314 {&quot;error&quot;:&quot;SyncedBeyondTarget(37235488, 37235488)&quot;,&quot;name&quot;:&quot;send_chunk_request&quot;}
 ====================================== 2 ======================================
